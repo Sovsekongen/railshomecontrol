@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Templivings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Val</th>
+      <th>Valh</th>
+      <th>Rec</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @templivings.each do |templiving| %>
+      <tr>
+        <td><%= templiving.name %></td>
+        <td><%= templiving.val %></td>
+        <td><%= templiving.valH %></td>
+        <td><%= templiving.rec %></td>
+        <td><%= link_to 'Show', templiving %></td>
+        <td><%= link_to 'Edit', edit_templiving_path(templiving) %></td>
+        <td><%= link_to 'Destroy', templiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Templiving', new_templiving_path %>

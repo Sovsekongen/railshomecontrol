@@ -1,0 +1,2 @@
+class Templiving < ApplicationRecord
+end

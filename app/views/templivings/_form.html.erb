@@ -1,0 +1,37 @@
+<%= form_with(model: templiving, local: true) do |form| %>
+  <% if templiving.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(templiving.errors.count, "error") %> prohibited this templiving from being saved:</h2>
+
+      <ul>
+        <% templiving.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :val %>
+    <%= form.text_field :val %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valH %>
+    <%= form.text_field :valH %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rec %>
+    <%= form.datetime_select :rec %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

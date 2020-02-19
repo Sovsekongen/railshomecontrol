@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  val: 
+  valH: 
+  rec: 2020-02-19 23:08:03
+
+two:
+  name: MyString
+  val: 
+  valH: 
+  rec: 2020-02-19 23:08:03

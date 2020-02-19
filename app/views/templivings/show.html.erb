@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @templiving.name %>
+</p>
+
+<p>
+  <strong>Val:</strong>
+  <%= @templiving.val %>
+</p>
+
+<p>
+  <strong>Valh:</strong>
+  <%= @templiving.valH %>
+</p>
+
+<p>
+  <strong>Rec:</strong>
+  <%= @templiving.rec %>
+</p>
+
+<%= link_to 'Edit', edit_templiving_path(@templiving) %> |
+<%= link_to 'Back', templivings_path %>
