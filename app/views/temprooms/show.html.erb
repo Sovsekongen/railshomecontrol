@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rec:</strong>
+  <%= @temproom.rec %>
+</p>
+
+<p>
+  <strong>Val:</strong>
+  <%= @temproom.val %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @temproom.name %>
+</p>
+
+<p>
+  <strong>Valh:</strong>
+  <%= @temproom.valH %>
+</p>
+
+<%= link_to 'Edit', edit_temproom_path(@temproom) %> |
+<%= link_to 'Back', temprooms_path %>
