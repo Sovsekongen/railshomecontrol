@@ -49,20 +49,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_111544) do
     t.decimal "valH", precision: 10, null: false
   end
 
-  create_table "temproom", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "temprooms", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "rec"
     t.float "val", limit: 53
     t.string "name", limit: 20
     t.float "valH", limit: 53
-  end
-
-  create_table "temprooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "rec"
-    t.float "val"
-    t.string "name"
-    t.float "valH"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tempvalues", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
