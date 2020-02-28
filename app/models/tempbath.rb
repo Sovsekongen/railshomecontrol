@@ -1,0 +1,2 @@
+class Tempbath < ApplicationRecord
+end

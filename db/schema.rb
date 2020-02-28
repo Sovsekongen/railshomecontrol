@@ -10,9 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_111544) do
+ActiveRecord::Schema.define(version: 2020_02_25_161308) do
 
-  create_table "sensor", primary_key: "name", id: :string, limit: 20, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "brandId", null: false
+    t.string "name", null: false
+    t.bigint "coffeebags_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coffeebags_id"], name: "index_brands_on_coffeebags_id"
+    t.index ["name"], name: "index_brands_on_name", unique: true
+  end
+
+  create_table "coffeebags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "bagId"
+    t.string "name"
+    t.float "price"
+    t.integer "rating"
+    t.string "amount"
+    t.string "filter"
+    t.integer "size"
+    t.integer "timesBought"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "countryId", null: false
+    t.string "name", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.bigint "coffeebags_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coffeebags_id"], name: "index_countries_on_coffeebags_id"
+    t.index ["name"], name: "index_countries_on_name", unique: true
+  end
+
+  create_table "sensors", primary_key: "name", id: :string, limit: 20, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "value", limit: 53, null: false
     t.string "unit", limit: 1
     t.string "type", limit: 20
@@ -21,28 +56,31 @@ ActiveRecord::Schema.define(version: 2020_02_19_111544) do
     t.time "time"
   end
 
-  create_table "sensordata", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "location", limit: 20, null: false
-    t.float "tempVal", limit: 53, null: false
-    t.float "humVal", limit: 53, null: false
-    t.timestamp "lastu", default: -> { "CURRENT_TIMESTAMP" }, null: false
+  create_table "tastes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "tastesId", null: false
+    t.bigint "coffeebags_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coffeebags_id"], name: "index_tastes_on_coffeebags_id"
+    t.index ["name"], name: "index_tastes_on_name", unique: true
   end
 
-  create_table "tempbath", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tempbaths", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "rec", null: false
     t.decimal "val", precision: 10, null: false
     t.string "name", limit: 30, null: false
     t.decimal "valH", precision: 10, null: false
   end
 
-  create_table "tempkitchen", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tempkitchens", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "rec", null: false
     t.decimal "val", precision: 10, null: false
     t.string "name", limit: 30, null: false
     t.decimal "valH", precision: 10, null: false
   end
 
-  create_table "templiving", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "templivings", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "rec", null: false
     t.decimal "val", precision: 10, null: false
     t.string "name", limit: 30, null: false

@@ -1,2 +1,3 @@
 class Temproom < ApplicationRecord
+
 end

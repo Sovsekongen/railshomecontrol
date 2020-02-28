@@ -1,0 +1,2 @@
+module TempkitchensHelper
+end

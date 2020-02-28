@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
-  resources :templivings
-  resources :temprooms
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :rooms do
+    resources :tempbaths
+    resources :tempkitchens
+    resources :templivings
+    resources :temprooms
+  end
+
+  namespace :coffeebags do
+    resources :brands
+    resources :countries
+    resources :tastes
+  end
+
+  resources :coffeebags
+  resources :sensors
 end

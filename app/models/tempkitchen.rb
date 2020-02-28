@@ -1,0 +1,2 @@
+class Tempkitchen < ApplicationRecord
+end
